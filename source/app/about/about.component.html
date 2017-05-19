@@ -1,0 +1,66 @@
+<h1 class="header">{{title}}</h1>
+
+<div class="hidden-xs col-sm-3 col-md-3 col-lg-3 about-side-bar">
+      <img src="https://www.casperinc.expert/media/CasperincLogoDark.svg" class="big-logo img-responsive">
+</div>
+
+<div class="col-xs-12 col-sm-9 col-md-8 col-lg-7 about-main">
+
+      <img src="https://www.casperinc.expert/media/CasperincLogoDark.svg" class="hidden-sm hidden-md hidden-lg big-logo img-responsive">
+
+      <ul class="about-item-list">
+            <li>
+                  <div class="panel panel-default about-item" [ngsReveal]="{reset: true}">
+                        <div class="panel-heading">
+                              <h3 class="panel-title">The Site</h3>
+                        </div>
+                        <div class="panel-body">
+                              Casperinc.expert is my showcase and my playground. This site will be where I show off and test new skills and technologies.
+                        </div>
+                  </div>
+            </li>
+            <li>
+                  <div class="panel panel-default about-item" [ngsReveal]="{reset: true}">
+                        <div class="panel-heading">
+                              <h3 class="panel-title">.Net Core</h3>
+                        </div>
+                        <div class="panel-body">
+                              ASP.Net Core is backending this site.
+                        </div>
+                  </div>
+            </li>
+            <li>
+                  <div class="panel panel-default about-item" [ngsReveal]="{reset: true}">
+                        <div class="panel-heading">
+                              <h3 class="panel-title">Angular 2</h3>
+                        </div>
+                        <div class="panel-body">
+                              Angular 2 is providing the front end.
+                        </div>
+                  </div>
+            </li>
+            <li>
+
+                  <div class="panel panel-default about-item" [ngsReveal]="{reset: true}">
+                        <div class="panel-heading">
+                              <h3 class="panel-title">Cross Platform</h3>
+                        </div>
+                        <div class="panel-body">
+                              Developed on macOS using VS Code and Windows 10 using Visual Studio 2017. Running on Ubuntu.
+                        </div>
+                  </div>
+            </li>
+            <li *ngFor="let item of items">
+                  <div class="panel panel-default about-item" [ngsReveal]="{reset: true}">
+                        <div class="panel-heading">
+                              <h3 class="panel-title">Heading test for About Item {{item}}</h3>
+                        </div>
+                        <div class="panel-body">
+                              Basic panel example for about {{item}}
+                        </div>
+                  </div>
+            </li>
+      </ul>
+</div>
+
+<div class="hidden-xs hidden-sm col-md-1 col-lg-2"> </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { INarrative } from '../Narrative/Narrative';
+import { NarrativeService } from '../Narrative/narrative-service';
 
 @Component({
     selector: 'about',
@@ -8,14 +10,29 @@ import { Title } from '@angular/platform-browser';
 })
 export class AboutComponent implements OnInit {
     title = 'About';
+    narratives: INarrative[];
+    checkNarratives: INarrative[];
+    errorMessage: string;
 
-    items: Number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
-
-    constructor( 
-        private pageTitle: Title
+    constructor(
+        private pageTitle: Title,
+        private _narrativeService: NarrativeService
     ) { }
-    
+
     ngOnInit() {
+        let s = null;
+
+        s = this._narrativeService.getAboutNarratives();
+
+        s.subscribe(
+            narratives => this.narratives = narratives,
+            error => this.errorMessage = <any>error
+        );
+
+        this.checkNarratives = this.narratives;
+
         this.pageTitle.setTitle('Casperinc | About');
-     }
+    }
+
 }
+

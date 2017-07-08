@@ -22,7 +22,7 @@ export class AboutComponent implements OnInit {
     ngOnInit() {
         let s = null;
 
-        s = this._narrativeService.getAboutNarratives();
+        s = this._narrativeService.getFilteredNarratives('about');
 
         s.subscribe(
             narratives => this.narratives = narratives,

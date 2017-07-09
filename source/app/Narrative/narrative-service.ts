@@ -28,7 +28,6 @@ export class NarrativeService {
             .catch(this.handleError);
     }
 
-
     getNarrative(id: string): Observable<INarrative> {
         let url = this.baseUrl + '/' + id.trim();
         return this.http.get(url)
@@ -36,21 +35,6 @@ export class NarrativeService {
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
-
-    getAboutNarratives(): Observable<INarrative[]> {
-        return this.getNarratives()
-        .map((narraitves:INarrative[]) =>
-            narraitves.filter(n => n.tags.findIndex(t => t.keyWord === 'About') !== -1));
-    }
-
-    // // returns a viable RequestOptions object to handle Json requests
-    // private getRequestOptions () {
-    //     return new RequestOptions({
-    //         headers: new Headers({
-    //             'Content-Type': 'application/json'
-    //         })
-    //     });
-    // }
 
     private handleError(error: Response) {
         // output errors to the console.

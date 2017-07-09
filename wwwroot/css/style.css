@@ -55,3 +55,6 @@ h2 {
   max-height: auto;
   width: auto\9;
 }
+.editor {
+  padding: 100px;
+}

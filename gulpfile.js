@@ -21,7 +21,10 @@ var srcPaths = {
         'node_modules/ng2-bootstrap/bundles/ng2-bootstrap.min.js',
         'node_modules/moment/moment.js',
         'node_modules/scrollreveal/dist/scrollreveal.min.js',
-        'node_modules/ng-scrollreveal/bundles/ng-scrollreveal.umd.js'
+        'node_modules/ng-scrollreveal/bundles/ng-scrollreveal.umd.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/froala-editor/js/froala_editor.pkgd.min.js',
+        'node_modules/angular-froala-wysiwyg/bundles/angular-froala-wysiwyg.umd.js'
     ],
     js_angular: [
         'node_modules/@angular/**'
@@ -31,7 +34,13 @@ var srcPaths = {
     ],
     less: [
         'source/less/**/*.less'
-    ]
+    ],
+    css: [
+        'node_modules/font-awesome/css/font-awesome.min.css',
+        'node_modules/froala-editor/css/froala_editor.pkgd.min.css',
+        'node_modules/froala-editor/css/froala_style.min.css'
+    ],
+    fonts: ['node_modules/font-awesome/fonts/**']
 };
 
 var destPaths = {
@@ -39,7 +48,8 @@ var destPaths = {
     css: 'wwwroot/css/',
     js: 'wwwroot/js/',
     js_angular: 'wwwroot/js/@angular/',
-    js_rxjs: 'wwwroot/js/rxjs/'
+    js_rxjs: 'wwwroot/js/rxjs/',
+    fonts: 'wwwroot/fonts/'
 };
 
 // Compile, minify and create sourcemaps all TypeScript files and place them to wwwroot/app, together with their js.map files.
@@ -80,21 +90,39 @@ gulp.task('js_clean', function () {
 });
 
 // Process all LESS files and output the resulting CSS in wwwroot/css
-gulp.task('less', ['less_clean'], function () {
+gulp.task('less', function () {
     return gulp.src(srcPaths.less)
         .pipe(gp_less().on('error', function(err){
-        gutil.log(err);
+        gp_util.log(err);
         this.emit('end');
     }))
         .pipe(gulp.dest(destPaths.css).on('error', function(err){
-        gutil.log(err);
+        gp_util.log(err);
         this.emit('end');
     }));
 });
 
-// Delete wwwroot/css contents
-gulp.task('less_clean', function () {
+// Copy all JS files from external libraries to wwwroot/js
+gulp.task('css', ['css_clean'], function () {
+    return gulp.src(srcPaths.css)
+        .pipe(gulp.dest(destPaths.css));
+});
+
+// Delete wwwroot/js contents
+gulp.task('css_clean', function () {
     return gulp.src(destPaths.css + "*.*", { read: false })
+    .pipe(gp_clean({ force: true }));
+});
+
+// Copy all JS files from external libraries to wwwroot/js
+gulp.task('fonts', ['fonts_clean'], function () {
+    return gulp.src(srcPaths.fonts)
+        .pipe(gulp.dest(destPaths.fonts));
+});
+
+// Delete wwwroot/js contents
+gulp.task('fonts_clean', function () {
+    return gulp.src(destPaths.fonts + "*.*", { read: false })
     .pipe(gp_clean({ force: true }));
 });
 
@@ -109,8 +137,8 @@ gulp.task('watch', function () {
 });
 
 // Global cleanup task
-gulp.task('cleanup', ['app_clean', 'js_clean', 'less_clean']);
+gulp.task('cleanup', ['app_clean', 'js_clean', 'css_clean', 'fonts_clean']);
 
 // Define the default task so it will launch all other tasks
 // gulp.task('default', ['app', 'js', 'less', 'watch']);
- gulp.task('default', ['app', 'js', 'less']);
+ gulp.task('default', ['app', 'js', 'css','less', 'fonts']);

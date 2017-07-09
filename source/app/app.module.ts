@@ -5,6 +5,8 @@ import {HttpModule} from '@angular/http';
 
 import {NgsRevealModule} from 'ng-scrollreveal';
 
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page_not_found.component';
 
@@ -13,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { WelcomeComponent } from './welcome.component';
 import { AboutItemComponent } from './about/about-item.component';
 import { NarrativeService } from './Narrative/narrative-service';
+import { EditorComponent } from './editor.component';
 
 @NgModule({
     declarations: [
@@ -20,14 +23,17 @@ import { NarrativeService } from './Narrative/narrative-service';
          PageNotFoundComponent,
          WelcomeComponent,
          AboutComponent,
-         AboutItemComponent
+         AboutItemComponent,
+         EditorComponent
     ],
     imports: [ 
         BrowserModule,
         HttpModule,
         RouterModule,
         AppRouting,
-        NgsRevealModule.forRoot()
+        NgsRevealModule.forRoot(),
+        FroalaEditorModule.forRoot(),
+        FroalaViewModule.forRoot()
     ],
     exports: [ ],
     providers: [ NarrativeService ],

@@ -1,0 +1,20 @@
+<!--
+<form class="editor" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <textarea [froalaEditor] formControlName="formModel"></textarea>
+  <button type="submit">Submit</button>
+</form>
+!-->
+
+<div class="editor">
+    <form>
+        <h3>
+            {{narrative.title}}
+            <span class="empty-field" [hidden]="dTitle.valid">Empty Title</span>
+        </h3>
+        <div>
+            <label for="input-description">Description</label>
+            <textarea id="input-description" name="input-description" placeholder="insert a suitable description..." required></textarea>
+        </div>
+        <div [froalaEditor] [(froalaModel)]="narrative.bodyHtml"> This Stuff </div>
+    </form>
+</div>

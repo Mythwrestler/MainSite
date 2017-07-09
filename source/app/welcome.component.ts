@@ -12,7 +12,7 @@ export class WelcomeComponent implements OnInit {
     constructor( 
         private pageTitle: Title
     ) { }
-    
+
     ngOnInit() {
         this.pageTitle.setTitle('Casperinc | Welcome');
      }

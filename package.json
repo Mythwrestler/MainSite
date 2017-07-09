@@ -27,15 +27,16 @@
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.0",
+    "angular-froala-wysiwyg": "^1.0.0",
     "core-js": "^2.4.1",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.7.2",
-    "reflect-metadata": "^0.1.10",
-    "systemjs": "^0.20.12",
     "moment": "^2.18.1",
+    "ng-scrollreveal": "^2.0.2",
     "ng2-bootstrap": "^1.6.3",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.1.0",
     "scrollreveal": "^3.3.5",
-    "ng-scrollreveal": "^2.0.2"
+    "systemjs": "^0.20.12",
+    "zone.js": "^0.7.2"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.41",

@@ -12,10 +12,10 @@ export class AppComponent implements OnInit {
     title = 'Casperinc';
 
     constructor(
-        private router: Router, 
+        private router: Router,
         private pageTitle: Title
     ) { }
-    
+
     ngOnInit() {
         this.pageTitle.setTitle('Casperinc');
      }

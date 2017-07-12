@@ -90,7 +90,7 @@ gulp.task('js_clean', function () {
 });
 
 // Process all LESS files and output the resulting CSS in wwwroot/css
-gulp.task('less', function () {
+gulp.task('less', ['css_clean'], function () {
     return gulp.src(srcPaths.less)
         .pipe(gp_less().on('error', function(err){
         gp_util.log(err);
@@ -103,7 +103,7 @@ gulp.task('less', function () {
 });
 
 // Copy all JS files from external libraries to wwwroot/js
-gulp.task('css', ['css_clean'], function () {
+gulp.task('css', function () {
     return gulp.src(srcPaths.css)
         .pipe(gulp.dest(destPaths.css));
 });
@@ -141,4 +141,4 @@ gulp.task('cleanup', ['app_clean', 'js_clean', 'css_clean', 'fonts_clean']);
 
 // Define the default task so it will launch all other tasks
 // gulp.task('default', ['app', 'js', 'less', 'watch']);
- gulp.task('default', ['app', 'js', 'css','less', 'fonts']);
+ gulp.task('default', ['app', 'js', 'less', 'css', 'fonts']);

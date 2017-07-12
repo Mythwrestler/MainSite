@@ -8,6 +8,7 @@ export class NarrativeService {
 
     // private baseUrl = 'https://www.casperinc.expert/api/narratives';  // web api URL
     private baseUrl = 'http://10.200.100.200/mainsite/api/narratives';  // web api URL
+    // private baseUrl = 'http://184.56.240.173:5000/mainsite/api/narratives';  // web api URL
 
     constructor(private http: Http) { }
 

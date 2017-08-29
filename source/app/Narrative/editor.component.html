@@ -5,7 +5,7 @@
 </form>
 !-->
 
-<div class="editor">
+<div class="editor" *ngIf="narrative">
         <h3>
             {{narrative.title}}
             <span class="empty-field" [hidden]="dTitle.valid">Empty Title</span>
@@ -28,8 +28,8 @@
         </form>
         <div>
             <ul>
-                <li *ngFor="let tag of narrative.tags">
-                    <div class="tag" (click)="dropTag(tag)">{{tag}}</div>
+                <li *ngFor="let keyword of narrative.keywords">
+                    <div class="tag" (click)="dropTag(keyword)">{{tag}}</div>
                 </li>
             </ul>
         </div>

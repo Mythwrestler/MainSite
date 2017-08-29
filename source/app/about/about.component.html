@@ -8,9 +8,9 @@
 
       <img src="https://www.casperinc.expert/media/CasperincLogoDark.svg" class="hidden-sm hidden-md hidden-lg big-logo img-responsive">
 
-      <ul class="about-item-list">
+      <ul class="about-item-list" ngif>
             <li *ngFor="let narrative of narratives">
-                <about-item [narrative]='narrative'></about-item> 
+                <about-item [narrative]='narrative' [loggedIn]='loggedIn'></about-item> 
             </li>
       </ul>
 </div>

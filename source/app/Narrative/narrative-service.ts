@@ -1,38 +1,37 @@
 import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
-import { INarrative } from "./Narrative";
+import { INarrative, Narrative } from "./Narrative";
+import { AuthHttp } from "../Authentication/auth.http";
 
 @Injectable()
 export class NarrativeService {
 
-    // private baseUrl = 'https://www.casperinc.expert/api/narratives';  // web api URL
-    private baseUrl = 'http://10.200.100.200/mainsite/api/narratives';  // web api URL
-    // private baseUrl = 'http://184.56.240.173:5000/mainsite/api/narratives';  // web api URL
+    private baseUrl = 'https://dev-web.casperinc.net/mainsite/api/narratives';  // web api URL
 
-    constructor(private http: Http) { }
+    constructor(private http: AuthHttp) { }
 
     // calls the [GET] /api/items/GetLatest/{n} Web API method to retrieve the latest items.
-    getNarratives(): Observable<INarrative[]> {
+    getNarratives(): Observable<Narrative[]> {
         let url = this.baseUrl;
         return this.http.get(url)
-            .map((response: Response) => <INarrative[]>response.json())
+            .map((response: Response) => <Narrative[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    getFilteredNarratives(filter: string): Observable<INarrative[]> {
+    getFilteredNarratives(filter: string): Observable<Narrative[]> {
         let url = this.baseUrl + '?KeywordFilter=' + filter.trim();
         return this.http.get(url)
-            .map((response: Response) => <INarrative[]>response.json())
+            .map((response: Response) => <Narrative[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    getNarrative(id: string): Observable<INarrative> {
+    getNarrative(id: string): Observable<Narrative> {
         let url = this.baseUrl + '/' + id.trim();
         return this.http.get(url)
-            .map((response: Response) => <INarrative>response.json())
+            .map((response: Response) => <Narrative>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }

@@ -36,11 +36,13 @@
     "rxjs": "^5.1.0",
     "scrollreveal": "^3.3.5",
     "systemjs": "^0.20.12",
-    "zone.js": "^0.7.2"
+    "zone.js": "^0.7.2",
+    "jwt-decode": "2.1.0",
+    "angular2-jwt": "^0.2.3"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.41",
-    "@types/node": "^6.0.60",
+    "@types/node": "^6.0.88",
     "@types/scrollreveal": "^0.0.2",
     "concurrently": "^3.4.0",
     "gulp": "^3.9.1",

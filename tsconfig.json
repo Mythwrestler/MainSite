@@ -10,6 +10,9 @@
         "noImplicitAny": true,
         "suppressImplicitAnyIndexErrors": true,
         "outDir": "wwwroot/app",
+        "types": [
+            "node"
+        ],
         "typeRoots": [
             "../node_modules/@types"
         ],

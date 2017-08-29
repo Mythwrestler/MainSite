@@ -5,7 +5,8 @@
         '@angular': 'js/@angular', // angular2 packages
         'rxjs': 'js/rxjs', // Rxjs package
         'ng-scrollreveal': 'js/ng-scrollreveal.umd.js',  //Scroll reveal api
-        'angular-froala-wysiwyg': 'js/angular-froala-wysiwyg.umd.js' // Froala text editor
+        'angular-froala-wysiwyg': 'js/angular-froala-wysiwyg.umd.js', // Froala text editor
+        'angular2-jwt': 'js/angular2-jwt.js'
     };
 
     // packages tells the System loader which filename and/or extensions to look for by default (when none are specified)

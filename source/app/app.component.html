@@ -17,7 +17,8 @@
             <ul class="nav navbar-nav">
                 <li [class.active]="isActive([''])"><a class="home" [routerLink]="['']">Home</a></li>
                 <li [class.active]="isActive(['about'])"><a class="about" [routerLink]="['about']">About</a></li>
-                <li [class.active]="isActive(['editor'])"><a class="editor" [routerLink]="['editor']">Editor</a></li>
+                <!-- <li [class.active]="isActive(['editor'])"><a class="editor" [routerLink]="['editor']">Editor</a></li> -->
+                <li *ngIf="loggedIn === false" [class.active]="isActive(['login'])"><a class="login" [routerLink]="['login']">Log In</a></li>
             </ul>
         </div>
     </div>

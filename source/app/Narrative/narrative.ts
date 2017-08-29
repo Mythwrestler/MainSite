@@ -1,17 +1,17 @@
 export interface INarrative {
-    id: string;
+    guidId: string;
     title: string;
     description: string;
     bodyHtml: string;
-    tags: String[];
+    keywords: String[];
 }
 
 export class Narrative implements INarrative {
     constructor(
-        public id: string,
+        public guidId: string,
         public title: string,
         public description: string,
         public bodyHtml: string,
-        public tags: string[]
+        public keywords: string[]
     ) { }
 }

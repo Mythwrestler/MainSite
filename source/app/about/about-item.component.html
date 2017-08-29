@@ -1,6 +1,7 @@
 <div class="panel panel-default about-item" [ngsReveal]="{reset: true}">
     <div class="panel-heading">
         <h3 class="panel-title">{{narrative.title}}</h3>
+        <input *ngIf="loggedIn" type="button" class="btn btn-primary" value="Edit" (click)="editNarrative()" />
     </div>
     <div class="panel-body">
        <div class="narrative" [innerHTML]="narrative.bodyHtml"></div>

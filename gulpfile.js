@@ -24,7 +24,8 @@ var srcPaths = {
         'node_modules/ng-scrollreveal/bundles/ng-scrollreveal.umd.js',
         'node_modules/jquery/dist/jquery.min.js',
         'node_modules/froala-editor/js/froala_editor.pkgd.min.js',
-        'node_modules/angular-froala-wysiwyg/bundles/angular-froala-wysiwyg.umd.js'
+        'node_modules/angular-froala-wysiwyg/bundles/angular-froala-wysiwyg.umd.js',
+        'node_modules/angular2-jwt/angular2-jwt.js'
     ],
     js_angular: [
         'node_modules/@angular/**'
@@ -59,12 +60,16 @@ gulp.task('app', ['app_clean'], function () {
     gulp.src(srcPaths.app_templates)
         .pipe(gulp.dest(destPaths.app));
 
-    return gulp.src(srcPaths.app_ts)
+    gulp.src(srcPaths.app_ts)
         .pipe(gp_sourcemaps.init())
         .pipe(gp_typescript(require('./tsconfig.json').compilerOptions))
         //.pipe(gp_uglify({ mangle: false }))
 		.pipe(gp_sourcemaps.write('/'))
         .pipe(gulp.dest(destPaths.app));
+
+    gulp.src(srcPaths.app_ts)
+        .pipe(gulp.dest(destPaths.app))
+    
 });
 
 // Delete wwwroot/app contents

@@ -1,11 +1,12 @@
-﻿import {ModuleWithProviders} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+﻿import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import {PageNotFoundComponent} from './page_not_found.component';
+import { PageNotFoundComponent } from './page_not_found.component';
 import { WelcomeComponent } from './welcome.component';
 import { AboutComponent } from './about/about.component';
-import { EditorComponent } from './editor.component';
+import { EditorComponent } from './Narrative/editor.component';
+import { LoginComponent } from './Authentication/login.component';
 
 
 
@@ -23,21 +24,13 @@ const appRoutes: Routes = [
          component: AboutComponent
      },
      {
-         path: 'editor',
+         path: 'editor/:narrativeId',
          component: EditorComponent
      },
-    // {
-    //     path: 'login',
-    //     component: LoginComponent
-    // },
-    // {
-    //     path: 'item/edit/:id',
-    //     component: ItemDetailEditComponent
-    // },
-    // {
-    //     path: 'item/view/:id',
-    //     component: ItemDetailViewComponent
-    // },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
     {
         path: '**',
         component: PageNotFoundComponent

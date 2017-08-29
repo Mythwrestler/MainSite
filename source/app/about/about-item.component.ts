@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NarrativeService } from '../Narrative/narrative-service';
-import { INarrative } from '../Narrative/narrative';
+import { INarrative, Narrative } from '../Narrative/narrative';
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'about-item',
@@ -8,24 +8,18 @@ import { INarrative } from '../Narrative/narrative';
     styleUrls: [ ]
 })
 export class AboutItemComponent implements OnInit {
-    // @Input() Id: string;
-    @Input() narrative: INarrative;
-    errorMessage: string;
+    @Input() narrative: Narrative;
+    @Input() loggedIn: boolean;
 
     constructor(
-        private _service: NarrativeService
+        private router: Router
     ) { }
 
-    ngOnInit(): void {
-        // let s = null;
+    ngOnInit(): void { }
 
-        // s =  this._service.getNarrative(this.Id);
-
-        // s.subscribe(
-        //     narrative => this.narrative = narrative,
-        //     error => this.errorMessage = <any>error
-        // );
-        // debugger;
-
+    editNarrative() {
+        this.router.navigate(['editor', this.narrative.guidId]);
+        return false;
     }
+
 }

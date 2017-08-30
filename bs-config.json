@@ -1,6 +1,0 @@
-{
-  "port": 5051,
-  "files": ["./wwwroot/**/*.{html,htm,css,js,ts,map}"],
-  "server": { "baseDir": "./wwwroot" },
-  "browser": "firefox"
-}

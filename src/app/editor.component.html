@@ -1,0 +1,39 @@
+<!--
+<form class="editor" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <textarea [froalaEditor] formControlName="formModel"></textarea>
+  <button type="submit">Submit</button>
+</form>
+!-->
+
+<div class="editor" *ngIf="narrative">
+        <h3>
+            {{narrative.title}}
+            <span class="empty-field" [hidden]="dTitle.valid">Empty Title</span>
+        </h3>
+
+    <form>
+        <div>
+            <label for="input-title">Title</label>
+            <input id="input-title" name="input-title" type="text" [(ngModel)]="narrative.title" placeholder="Insert the title..." required #dTitle="ngModel" />
+        </div>
+        <div>
+            <label for="input-description">Description</label>
+            <textarea id="input-description" name="input-description" placeholder="insert a suitable description..." required [(ngModel)]="narrative.description"></textarea>
+        </div>
+        <div [froalaEditor] [(froalaModel)]="narrative.bodyHtml"></div>
+        <form>
+            <label for="input-tags">Enter Keywords</label>
+            <input id="input-tags" name="input-keywords" [(ngModel)]="newKeyword" type="text" (keyup.enter)="addTag()"/>
+            <input type="button" class="btn btn-primary" value="Add Tag" (click)="addTag()" />
+        </form>
+        <div>
+            <ul>
+                <li *ngFor="let keyword of narrative.keywords">
+                    <div class="tag" (click)="dropTag(keyword)">{{keyword}}</div>
+                </li>
+            </ul>
+        </div>
+    </form>
+
+
+</div>

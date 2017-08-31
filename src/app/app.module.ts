@@ -40,6 +40,8 @@ import { EditorComponent } from "./editor.component";
     FroalaViewModule.forRoot()
   ],
   providers: [
+    //{ provide: 'IAuthService', useClass: AuthService },
+    AuthService,
     NarrativeService,
     AuthService,
     AuthHttp

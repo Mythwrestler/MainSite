@@ -34,14 +34,14 @@ export class EditorComponent implements OnInit {
 
     this.narrativeId = this.activatedRoute.snapshot.params['narrativeId'];
 
-    if (this.narrativeId != null && this.narrativeId !== "") {
+    if (this.narrativeId !== null && this.narrativeId !== "") {
       this.narrativeService.getNarrative(this.narrativeId)
         .subscribe(
         narrative => this.narrative = narrative,
         error => this.errorMessage = <any>error
         );
     } else {
-      this.narrative = new Narrative('', 'test Narrative', 'test narrative description', 'body', ['test1', 'test2']);
+      this.narrative = new Narrative(null, 'test Narrative', 'test narrative description', 'body', ['test1', 'test2']);
       this.narrative.bodyHtml = '<div> test <strong>test</strong></div>';
       this.narrative.keywords = ['test1', 'test2'];
       this.newKeyword = '';
@@ -59,6 +59,18 @@ export class EditorComponent implements OnInit {
   dropTag(tag: string) {
     if (this.narrative.keywords.includes(tag)) {
       this.narrative.keywords = this.narrative.keywords.filter(t => t !== tag);
+    }
+  }
+
+  onSave() {
+    if (this.narrative.guidId == null) {
+      this.narrativeService.postNarrative(this.narrative)
+        .subscribe(
+        narrative => this.narrative = narrative,
+        error => this.errorMessage = <any>error
+        );
+    } else {
+      // patch
     }
   }
 

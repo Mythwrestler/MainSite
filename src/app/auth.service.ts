@@ -1,4 +1,4 @@
-
+import { environment } from './../environments/environment';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
@@ -11,9 +11,10 @@ import { AuthTokenModel } from './auth-token-model';
 import { ProfileModel } from './profile-model';
 import { RefreshGrantModel } from './refresh-grant-model';
 import { LoginModel } from './login-model';
+import { IAuthService } from "./iauth-service";
 
 @Injectable()
-export class AuthService {
+export class AuthService implements IAuthService{
 
     private initalState: AuthStateModel = { profile: null, tokens: null, authReady: false };
     private authReady$ = new BehaviorSubject<boolean>(false);
@@ -96,11 +97,8 @@ export class AuthService {
         }
         );
 
-        // const params = new URLSearchParams();
-        // Object.keys(data)
-        //     .forEach(key => params.append(key, data[key]));
         let parms = this.toUrlEncodedString(data);
-        return this.http.post(`https://dev-web.casperinc.net/identityprovider/connect/token`, parms, options)
+        return this.http.post(`${environment.casperincUrl}/identityprovider/connect/token`, parms, options)
             .do(res => {
                 const tokens: AuthTokenModel = res.json();
                 const now = new Date();

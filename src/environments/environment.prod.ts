@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  casperincUrl: 'https://www.casperinc.expert'
 };

@@ -1,11 +1,10 @@
 <!-- <div class="panel panel-default about-item" [ngsReveal]="{reset: true}"> -->
-<div class="panel panel-default about-item">
-
-  <div class="panel-heading">
+<div *ngIf="narrative" class="panel panel-default about-item" id="aboutPanel">
+  <div class="panel-heading" id="aboutPanelHeading">
         <h3 class="panel-title">{{narrative.title}}</h3>
-        <input *ngIf="loggedIn" type="button" class="btn btn-primary" value="Edit" (click)="editNarrative()" />
+        <input *ngIf="loggedIn" type="button" class="btn btn-primary" value="Edit" (click)="editNarrative()" id="editNarrative"/>
     </div>
     <div class="panel-body">
-       <div class="narrative" [innerHTML]="narrative.bodyHtml"></div>
+       <div id="aboutBody" class="narrative" [innerHTML]="narrative.bodyHtml"></div>
     </div>
 </div>

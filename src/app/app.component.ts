@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Title } from "@angular/platform-browser";
 import { AuthService } from "./auth.service";
 import { Router } from "@angular/router";
+import { IAuthService } from "./iauth-service";
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private pageTitle: Title,
+    //@Inject('IAuthService') private authService: IAuthService
     private authService: AuthService
   ) { }
 

@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -ssl 1 --ssl-key \"assets/app.selfsigned.key\" --ssl-cert \"ssl/app.selfsigned.crt\"",
+    "start": "ng serve",
+    "start-ssl": "ng serve -ssl 1 --ssl-key \"assets/app.selfsigned.key\" --ssl-cert \"ssl/app.selfsigned.crt\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -27,6 +28,7 @@
     "core-js": "^2.4.1",
     "less": "^2.7.2",
     "ngx-bootstrap": "^1.9.1",
+    "popper.js": "^1.12.5",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },

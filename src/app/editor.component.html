@@ -1,0 +1,40 @@
+<!--
+<form class="editor" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <textarea [froalaEditor] formControlName="formModel"></textarea>
+  <button type="submit">Submit</button>
+</form>
+!-->
+
+<div class="hidden-xs col-sm-3 col-md-3 col-lg-3 side-bar"></div>
+
+<div class="col-xs-12 col-sm-9 col-md-8 col-lg-7 editor" *ngIf="narrative">
+  <h3>
+    {{narrative.title}}
+    <span class="empty-field" [hidden]="dTitle.valid">Empty Title</span>
+  </h3>
+
+  <form class="edit-narratives">
+    <div>
+      <label for="input-title">Title</label>
+      <input id="input-title" name="input-title" type="text" [(ngModel)]="narrative.title" placeholder="Insert the title..." required
+        #dTitle="ngModel" />
+    </div>
+    <div>
+      <label for="input-description">Description</label>
+      <textarea id="input-description" name="input-description" placeholder="insert a suitable description..." required [(ngModel)]="narrative.description"></textarea>
+    </div>
+    <div [froalaEditor] [(froalaModel)]="narrative.bodyHtml"></div>
+    <form>
+      <label for="input-tags">Enter Keywords</label>
+      <input id="input-tags" name="input-keywords" [(ngModel)]="newKeyword" type="text" (keyup.enter)="addTag()" />
+      <input type="button" class="btn btn-primary" value="Add Tag" (click)="addTag()" />
+    </form>
+    <div class="tag-listing list-inline">
+          <div *ngFor="let keyword of narrative.keywords" class="tag list-inline-item btn btn-info" (click)="dropTag(keyword)">{{keyword}}</div>
+    </div>
+  </form>
+
+
+</div>
+
+<div class="hidden-xs hidden-sm col-md-1 col-lg-2"> </div>

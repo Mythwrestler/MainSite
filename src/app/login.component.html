@@ -1,0 +1,20 @@
+<h2>{{title}}</h2>
+<div class="login-container">
+    <h2 class="form-login-heading">Login</h2>
+    <div class="alert alert-danger" role="alert" *ngIf="loginError">
+        <strong>Warning:</strong> Username or Password mismatch
+    </div>
+    <form class="form-login" [formGroup]="loginForm" (submit)="onSubmit()">
+        <input formControlName="username" type="text" class="form-control" placeholder="Your username or email" required autofocus>
+        <input formControlName="password" type="text" class="form-control" placeholder="Your password" required>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me">
+                    Remember Me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Sign In
+        </button>
+    </form>
+</div>

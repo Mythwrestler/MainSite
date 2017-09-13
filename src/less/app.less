@@ -1,0 +1,124 @@
+// Some Variables that will be used below
+@color-latest: #5a4d74;
+@color-most-viewed: #4d6552;
+@color-random: #703535;
+
+// Navbar styling
+.navbar {
+    margin-bottom: 0;
+    img {
+        width: 100px;
+        height: 100px;
+        margin: -4px 0 0 0;
+        padding: 0;
+    }&.navbar-default {
+      background-color: darkslategray;
+      a {
+         color: #E6D6CA;
+      }
+      .navbar-nav a {
+        color: #E6D6CA;
+      }
+    }
+
+    // Expand/collapse the navbar in mobile-friendly mode using pure CSS styling.
+    // ref.: http://stackoverflow.com/a/31506685/1233379
+    #navbar-toggle-cbox {
+        display:none;
+        &:checked ~ .collapse {
+            display: block;
+        }
+    }
+}
+
+// Improve the visibility of the active navbar item (currently active route)
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    background-color: #863500;
+}
+
+// Header styling
+h1.header {
+    font-size: 40px;
+    margin: 0 0 0 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+h2 {
+    margin: 20px;
+    padding: 0;
+    font-size: 1.4em;
+    line-height: 1.4em;
+    font-style: italic;
+    color: #666666;
+}
+
+.about-side-bar {
+    text-align: center;
+}
+
+.about-main {
+        padding: 10px;
+}
+
+.about-item-list {
+    list-style-type: none;
+    padding-left:0;
+    &.about-item {
+        min-height: 200px;
+    }
+}&.big-logo {
+        margin: auto;
+        padding: 5px;
+        max-width: 100%;
+        max-height: auto;
+        width: auto\9;
+}
+
+.editor{
+    padding: 100px 10px;
+    form{
+      label {
+          font-size: 14px;
+          font-weight: bold;
+          display: block;
+          background-color: #eaeaea;
+          line-height: 1.4em;
+          padding: 5px 10px;
+      }
+      textarea {
+          &#input-description {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+            width: 100%;
+          }
+      }
+    }
+    .tag-listing{
+      ul{
+        list-style-type: none;
+      }
+
+    }
+}
+
+.login-container {
+    max-width: 330px;
+    padding: 15px;
+    .form-login {
+        margin: 0 0 10px 20px;
+        .checkbox {
+            margin-bottom: 10px;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    }
+}

@@ -1,5 +1,0 @@
-{
-  "port": 5051,
-  "files": ["./wwwroot/**/*.{html,htm,css,js}"],
-  "server": { "baseDir": "./wwwroot" }
-}
